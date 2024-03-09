@@ -1,4 +1,5 @@
 # Written by Joseph P.Vera
+# 2024-03
 
 set title "c-BN (Primitive cell)"
 set xlabel "Cutoff energy (eV)"
