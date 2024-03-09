@@ -1,1 +1,2 @@
-Run the script with: gnuplot -p 'name.gp'
+Run the script with: gnuplot -p 'name.gp' or
+                     gnuplot -p /home/"user"/bin/gnuplot/cutoff.gp
