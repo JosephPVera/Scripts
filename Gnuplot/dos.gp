@@ -1,4 +1,5 @@
 # Written by Joseph P.Vera
+# 2024-03
 
 set title "DOS (Supercell 4x4x4)"
 set xlabel "Frecuency (THz)"
