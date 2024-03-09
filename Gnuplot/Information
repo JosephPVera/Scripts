@@ -1,1 +1,1 @@
-Run the code with: gnuplot -p 'name.gp'
+Run the script with: gnuplot -p 'name.gp'
