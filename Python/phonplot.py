@@ -5,15 +5,19 @@
 import matplotlib  as plt
 import matplotlib.pyplot as plt
 import numpy as np 
-
-print('Information:')
-print('1. Plot DOS with NAC and DOS without NAC')
-print('2. Plot Total DOS')
-print('3. Plot BS with NAC and BS without NAC')
-print('4. Plot BS (Band structure)')
-print('5. Plot Projected DOS')
-print('6. Plot Band structure and Projected DOS')
-a = int(input('Enter selection ='))
+print('--------------------------------------------------------------------------------')
+print('                                 Information                                    ')
+print('--------------------------------------------------------------------------------')
+print('1. Plot Density of States with and without NAC')
+print('2. Plot Total Density of States')
+print('3. Plot Band structure with and without NAC')
+print('4. Plot Band structure')
+print('5. Plot Projected Density of States')
+print('6. Plot Band structure and Projected Density of States')
+print('7. Plot Thermal properties')
+print('--------------------------------------------------------------------------------')
+a = int(input('Enter selection = '))
+print('--------------------------------------------------------------------------------')
 
 if a == 1: 
    fig = plt.figure()
@@ -104,6 +108,27 @@ elif a == 6:
    plt.subplots_adjust(wspace=0.045)
    plt.close(fig)
    fig.savefig('bs_pdos.png', dpi=300)
- 
+   
+elif a == 7:
+   fig = plt.figure()
+   plt.plot(*np.loadtxt("thermal.dat", unpack=True, usecols=(0,1)), 'green', label = 'Helmholtz Free energy (kJ/mol)')
+   plt.plot(*np.loadtxt("thermal.dat", unpack=True, usecols=(0,2)), 'orange', label = 'Entropy (J/K.mol)')
+   plt.plot(*np.loadtxt("thermal.dat", unpack=True, usecols=(0,3)), 'blue', label = 'Heat Capacity $C_{v}$ (J/K.mol)')
+   plt.plot(*np.loadtxt("thermal.dat", unpack=True, usecols=(0,4)), 'red', label = 'Energy (kJ/mol)')
+   plt.legend()
+   plt.title('Thermal properties')
+   plt.xlabel('Temperature (K)')
+   #plt.ylabel('Partial Density of States')
+   plt.ylim(0, 60)
+   plt.xlim(0, 1000)
+   fig.set_size_inches(12, 8)   # (18, 10)
+   plt.close(fig)
+   fig.savefig('thermal.png', dpi=300)
+
 else:
-   print("Warning: Enter the correct value")
+   print('')
+   print('')
+   print('--------------------------------------------------------------------------------')
+   print('warning warning warning warning warning warning warning warning warning warning')
+   print('--------------------------------------------------------------------------------')
+   print("Warning: Incorrect value")
